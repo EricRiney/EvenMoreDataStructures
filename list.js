@@ -137,10 +137,16 @@ function getElement() {
 // names.remove("Raymond");
 // console.log(names.toString());
 
-var movies = createArr("movies.txt");
+var fs = require('fs');
+
+var fs = require('fs');
+var movies = fs.readFileSync('movies.txt').toString().split("\n");
+for(movie in movies) {
+    console.log(movies[movie]);
+}
+
 var movieList = new List();
-console.log(movies);
-// var customers = new List();
+var customers = new List();
 // for (var i = 0; i < movies.length; ++i) {
 //    movieList.append(movies[i]);
 // }
