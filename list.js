@@ -132,28 +132,42 @@ function getElement() {
     return this.dataStore[this.pos];
 }
 
-for(names.front(); names.currPos() < names.length(); names.next()) { 
-    print(names.getElement());
-}
-
-// var names = new List();
-// names.append("Cynthia");
-// names.append("Raymond");
-// names.append("Barbara");
-// console.log(names.toString());
-// names.remove("Raymond");
-// console.log(names.toString());
 
 var fs = require('fs');
 
-var fs = require('fs');
-var movies = fs.readFileSync('movies.txt').toString().split("\n");
-for(movie in movies) {
-    console.log(movies[movie]);
+// file to array 
+function grabMovies () {
+    var movies = fs.readFileSync('movies.txt').toString().split("\n");
+    for (var i = 0; i < movies.length; ++i) {
+        movies[i] = movies[i].trim();
+    }
+    return movies;
 }
 
-var movieList = new List();
-var customers = new List();
+var hellaMovies = grabMovies();
+
+// array to our list
+function arrToList(arr) {
+    var list = new List();
+    for (var i = 0; i < arr.length; ++i) {
+       list.append(arr[i]);
+    }
+    return list;
+}
+
+var movieList = arrToList(hellaMovies);
+
+
+console.log(movieList.toString());
+
+
+// for(movie in movies) {
+//     console.log(movies[movie]);
+// }
+
+// var movieList = new List();
+// var customers = new List();
+
 // for (var i = 0; i < movies.length; ++i) {
 //    movieList.append(movies[i]);
 // }
