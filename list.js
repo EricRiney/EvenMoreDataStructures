@@ -59,6 +59,11 @@ function toString() {
     return this.dataStore;
 }
 
+// lol
+function length() { 
+    return this.listSize;
+}
+
 // Clears the list
 function clear() {
     delete this.dataStore; 
@@ -91,11 +96,9 @@ function contains(element) {
     return false; 
 }
 
-// The length() function returns the number of elements in a list
-function length() { 
-    return this.listSize;
-}
-
+// This set of functions allows movement through a list, 
+// and the last function, getElement(), 
+// displays the current element in a list:
 
 function front() { 
     this.pos = 0;
@@ -127,6 +130,10 @@ function moveTo(position) {
 
 function getElement() {
     return this.dataStore[this.pos];
+}
+
+for(names.front(); names.currPos() < names.length(); names.next()) { 
+    print(names.getElement());
 }
 
 // var names = new List();
